@@ -1,0 +1,68 @@
+<section  class="container">
+
+  <header class="row">
+  <h1 class="col-md-12">Burgers</h1>
+  </header>
+
+  <article class="row">
+    <div class="col-md-6">
+      <h2>Burgers to eat</h2>
+        <div id="to-eat" class="stuff row">
+          <ul >
+            {{#each burgers}}
+              {{#unless this.devoured}}
+                <li class="col-md-3">
+                 <h3>{{this.burger_name}}</h3>
+
+                  <form action="/{{this.id}}?_method=PUT" method="POST">
+                    <input type="hidden" name="devoured" value="true">
+                    <button class="btn-success btn-lg" type="submit">EAT!</button>
+                  </form>
+
+                  
+                </li>
+              {{/unless}}
+            {{/each}}
+          </ul>
+        </div>  
+    </div>
+  
+    <div class="col-md-6">
+      <h2>Burgers you ate</h2>
+      <div id="eaten" class="stuff row">
+        <ul id="eaten">
+          {{#each burgers}}
+            {{#if this.devoured}}
+              <li class="col-md-12">
+                <h3>{{this.burger_name}}</h3>
+
+                <form action="/{{this.id}}?_method=PUT" method="POST">
+                  <input type="hidden" name="devoured" value="false">
+                  <!-- <button class="btn-success btn-lg" type="submit">un eat</button> -->
+                </form>
+
+                
+              </li>
+            {{/if}}
+          {{/each}}
+        </ul>
+      </div>
+     </div> 
+  </article>
+<h2>Add a burger</h2>
+<form class="create-update-form" action="/" method="POST">
+
+  <div class="form-group">
+    <label for="bur"><h3>Burger Name:</h3></label>
+    <input type="text" id="ca" name="name">
+  </div>
+
+  <!-- <div class="form-group">
+    <label for="dev">Eat?</label><br>
+    <input type="radio" name="devoured" value="1" checked> Sleepy!<br>
+    <input type="radio" name="devoured" value="0"> Awake
+  </div> -->
+
+  <button class="btn-success btn-lg" type="submit">Add Burger</button>
+</form>
+</section>
