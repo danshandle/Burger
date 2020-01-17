@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -14,6 +15,9 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/danshandle/Burger"
+  },
+  "engines": {
+    "node": "10.16.0"
   },
   "homepage": "https://github.com/danshandle/Burger",
   "dependencies": {
